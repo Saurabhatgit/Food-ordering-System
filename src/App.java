@@ -44,6 +44,7 @@ public class App {
     }
     public static void login(){
         Scanner sc = new Scanner(System.in);
+        System.out.println();
         System.out.println("Welcome to Login Portal");
         System.out.println("Enter Your Email");
         tempmail = sc.next();
@@ -51,6 +52,7 @@ public class App {
         temppass = sc.next();
         if(userlist.size()==0){
             System.out.println("Account doesnot exists!Please Signup");
+            System.out.println();
             return;
         }
         for(int i=0;i<userlist.size();i++){
@@ -59,21 +61,25 @@ public class App {
             if(s.compareTo(tempmail)==0){
                 if(userlist.get(i).password.compareTo(temppass)==0){
                     System.out.println("Login Succesfull");
+                    System.out.println();
                     deliveryapp();
                 }
                 else{
                     System.out.println("Invalid Password! Please Enter the Correct Password");
+                    System.out.println();
                     break;
                 }
             }
             else{
                 System.out.println("Account Doesnot Exist! Please Signup");
+                System.out.println();
                 break;
             }
         }
     }
     public static void deliveryapp(){
         Scanner sc = new Scanner(System.in);
+        System.out.println();
         System.out.println("We Provide Two Way of Search");
         while(true){
             System.out.println("1.Search Restaurants");
@@ -93,16 +99,18 @@ public class App {
             }
             else{
                 System.out.println("please enter correct choice");
+                System.out.println();
             }
         }
         return;
     }
     public static void hotelsearch(){
         Scanner sc = new Scanner(System.in);
+        System.out.println();
         System.out.println("Choose Your Favorite Restaurants");
         for(int i=0;i<hotellist.size();i++){
             String s = hotellist.get(i).hotelname;
-            System.out.println((i+1)+s);
+            System.out.println((i+1)+". "+s);
         }
         System.out.println("Enter the Restaurant Number");
         int n = sc.nextInt();
@@ -113,14 +121,15 @@ public class App {
         Scanner sc = new Scanner(System.in);
         hotels u = hotellist.get(n-1);
         int k = u.foods.size();
-        System.out.println("Cuisine"+" "+"Cost");
+        System.out.println();
+        System.out.println("   Cuisines Available");
         for(int i=0;i<k;i++){
-            System.out.println((i+1)+u.foods.get(i)+" "+u.price.get(i));
+            System.out.println((i+1)+". "+u.foods.get(i)+" "+u.price.get(i));
         }
         ArrayList<String> selectedfood = new ArrayList<>();
         ArrayList<Integer> priceoffood = new ArrayList<>();
         System.out.println("Enter the number assigned to your favorite food");
-        System.out.print("Press 0 to go to cart");
+        System.out.println("Press 0 to go to cart");
         while(true){
             int no = sc.nextInt();
             if(no==0){
@@ -134,6 +143,7 @@ public class App {
     }
     public static void foodsearch() {
         Scanner sc = new Scanner(System.in);
+        System.out.println();
         System.out.println("Choose Your Favorite Cuisine");
         for(int i=0;i<cuisinelist.size();i++){
             String s = cuisinelist.get(i).nameofcuisine;
@@ -148,6 +158,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         Cuisinesavailable c = cuisinelist.get(n-1);
         int k = c.hotelswithcuisine.size();
+        System.out.println();
         for(int i=0;i<k;i++){
             System.out.println((i+1)+c.hotelswithcuisine.get(i)+" "+c.priceofcuisine.get(i));
         }
@@ -155,17 +166,20 @@ public class App {
         int q = sc.nextInt();
         int sum = c.priceofcuisine.get(q-1);
         System.out.println(c.hotelswithcuisine.get(q-1)+" "+c.priceofcuisine.get(q-1));
-        System.out.println("Your total cart value"+sum);
+        System.out.println();
+        System.out.println("Your total cart value  "+sum);
         System.out.println("1.Place your order");
         System.out.println("2.Cancel the order");
         int p = sc.nextInt();
         if(p==1){
             System.out.println("Your Order was Placed Succesfully!");
+            System.out.println();
             System.exit(0);
             return;
         }
         if(p==2){
             System.out.println("Your Order was Cancelled!");
+            System.out.println();
             System.exit(0);
             return;
         }
@@ -174,12 +188,14 @@ public class App {
         Scanner sc = new Scanner(System.in);
         int k = s.size();
         int sum =0;
+        System.out.println();
         System.out.println("Your Cart");
         for(int i=0;i<k;i++){
             sum = sum + q.get(i);
             System.out.println(s.get(i)+" "+q.get(i));
         }
-        System.out.println("Your total cart value"+sum);
+        System.out.println();
+        System.out.println("Your total cart value  "+sum);
         System.out.println("1.Place your order");
         System.out.println("2.Cancel the order");
         int n = sc.nextInt();
@@ -196,6 +212,7 @@ public class App {
     }
     public static void signup(){
         Scanner sc = new Scanner(System.in);
+        System.out.println();
         System.out.println("Welcome to Signup Portal");
         System.out.println("Enter Your Name");
         tempname = sc.nextLine();
@@ -230,6 +247,7 @@ public class App {
             }
             else{
                 System.out.println("Please Enter a Valid Name");
+                System.out.println();
                 flag = 0;
                 return 0;
             }
@@ -261,6 +279,7 @@ public class App {
                                     }
                                     else{
                                         System.out.println("Enter Valid Mobile Number");
+                                        System.out.println();
                                         return 0;
                                     }
                                 }
@@ -270,30 +289,36 @@ public class App {
                             }
                             else{
                                 System.out.println("Enter 10 digit Mobile Number");
+                                System.out.println();
                             }
                         }
                         else{
                             System.out.println("Enter a Valid Age");
+                            System.out.println();
                             return 0;
                         }
                     }
                     else{
                         System.out.println("Please Enter a Strong Password. Your Password must contain atleast one Uppercase letter, one lowercase letter, one number and one special character");
+                        System.out.println();
                         return 0;
                     }
                    }
                    else{
                        System.out.println("Password not in range. Your password length must be between length of 8-12");
+                       System.out.println();
                        return 0;
                    }
                } 
                else{
                    System.out.println("Password Mismatch");
+                   System.out.println();
                    return 0;
                }
             }
             else{
                 System.out.println("Please Enter Valid E-Mail");
+                System.out.println();
                 return 0;
             }
         }
@@ -303,10 +328,12 @@ public class App {
         for(int i=0;i<userlist.size();i++){
             if(userlist.get(i).email == tempmail){
                 System.out.println("Account already exists with this email!Please Login");
+                System.out.println();
                 break;
             }
         }
         System.out.println("Account Successfully Created");
+        System.out.println();
         return;
     }
     public static void mainframe(){
@@ -333,5 +360,82 @@ public class App {
         }
     }
     public static void initialisedatabase() { 
+        hotels a = new hotels();
+        String s = "";
+        ArrayList<String> f = new ArrayList<>();
+        a.hotelname = "CRYSTAL BOWL";
+        s = "Chilli Paneer";
+        f.add(s);
+        s = "Aroma Rice";
+        f.add(s);
+        s = "Crispy BabyCorn";
+        f.add(s);
+        s = "Maharaja Thali";
+        f.add(s);
+        a.foods = f;
+        ArrayList<Integer> p = new ArrayList<>();
+        p.add(350);
+        p.add(450);
+        p.add(300);
+        p.add(600);
+        a.price = p;
+        hotels b = new hotels();
+        ArrayList<String> f1 = new ArrayList<>();
+        ArrayList<Integer> p1 = new ArrayList<>();
+        b.hotelname = "ZAIKA";
+        s = "Butter Chicken";
+        f1.add(s);
+        s = "Biryani";
+        f1.add(s);
+        s = "Naan";
+        f1.add(s);
+        s = "Mutton Seekh Kebab";
+        f1.add(s);
+        p1.add(400);
+        p1.add(500);
+        p1.add(60);
+        p1.add(350);
+        b.foods = f1;
+        b.price = p1;
+        hotels c = new hotels();
+        ArrayList<String> f2 = new ArrayList<>();
+        ArrayList<Integer> p2 = new ArrayList<>();
+        c.hotelname = "LEMON GRASS";
+        s = "White Sauce Pasta";
+        f2.add(s);
+        s = "Veg Fried Rice";
+        f2.add(s);
+        s = "Spring Roll";
+        f2.add(s);
+        s = "Mushroom Tikka";
+        f2.add(s);
+        p2.add(300);
+        p2.add(150);
+        p2.add(200);
+        p2.add(250);
+        c.foods = f2;
+        c.price = p2;
+        hotels d = new hotels();
+        ArrayList<String> f3 = new ArrayList<>();
+        ArrayList<Integer> p3 = new ArrayList<>();
+        d.hotelname = "ROMA'S CAFE";
+        s = "Cheese and Corn Pizza";
+        f3.add(s);
+        s = "Mexican Aloo Tikki Burger";
+        f3.add(s);
+        s ="Schezwan Noodles";
+        f3.add(s);
+        s = "StrawBerry Milkshake";
+        f3.add(s);
+        p3.add(350);
+        p3.add(200);
+        p3.add(250);
+        p3.add(150);
+        d.foods = f3;
+        d.price = p3;
+        hotellist.add(a);
+        hotellist.add(b);
+        hotellist.add(c);
+        hotellist.add(d);
     }
 }
