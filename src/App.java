@@ -39,7 +39,8 @@ public class App {
         String mobileno;
     }
     public static void main(String[] args){
-        initialisedatabase();
+        initialisehoteldatabase();
+        initialisecuisinedatabase();
         mainframe();
     }
     public static void login(){
@@ -147,7 +148,7 @@ public class App {
         System.out.println("Choose Your Favorite Cuisine");
         for(int i=0;i<cuisinelist.size();i++){
             String s = cuisinelist.get(i).nameofcuisine;
-            System.out.println((i+1)+s);
+            System.out.println((i+1)+". "+s);
         }
         System.out.println("Enter the Cuisine Number");
         int n = sc.nextInt();
@@ -160,7 +161,7 @@ public class App {
         int k = c.hotelswithcuisine.size();
         System.out.println();
         for(int i=0;i<k;i++){
-            System.out.println((i+1)+c.hotelswithcuisine.get(i)+" "+c.priceofcuisine.get(i));
+            System.out.println((i+1)+". "+c.hotelswithcuisine.get(i)+" "+c.priceofcuisine.get(i));
         }
         System.out.println("Enter the Restaurant Number");
         int q = sc.nextInt();
@@ -359,7 +360,7 @@ public class App {
             }
         }
     }
-    public static void initialisedatabase() { 
+    public static void initialisehoteldatabase() { 
         hotels a = new hotels();
         String s = "";
         ArrayList<String> f = new ArrayList<>();
@@ -437,5 +438,84 @@ public class App {
         hotellist.add(b);
         hotellist.add(c);
         hotellist.add(d);
+    }
+    public static void initialisecuisinedatabase() {
+        Cuisinesavailable a = new Cuisinesavailable();
+        String s = "";
+        ArrayList<String> f = new ArrayList<>();
+        a.nameofcuisine = "MOMOS";
+        s = "Momos and Mayo";
+        f.add(s);
+        s = "Wow Momos";
+        f.add(s);
+        s = "Red Chillies";
+        f.add(s);
+        s = "Hot n Spicy";
+        f.add(s);
+        a.hotelswithcuisine = f;
+        ArrayList<Integer> p = new ArrayList<>();
+        p.add(160);
+        p.add(350);
+        p.add(100);
+        p.add(60);
+        a.priceofcuisine = p;
+        Cuisinesavailable b = new Cuisinesavailable();
+        ArrayList<String> f1 = new ArrayList<>();
+        ArrayList<Integer> p1 = new ArrayList<>();
+        b.nameofcuisine = "BURGERS";
+        s = "McDonald";
+        f1.add(s);
+        s = "Burger King";
+        f1.add(s);
+        s = "KFC";
+        f1.add(s);
+        s = "Leon Grill";
+        f1.add(s);
+        p1.add(150);
+        p1.add(200);
+        p1.add(250);
+        p1.add(350);
+        b.hotelswithcuisine = f1;
+        b.priceofcuisine = p1;
+        Cuisinesavailable c = new Cuisinesavailable();
+        ArrayList<String> f2 = new ArrayList<>();
+        ArrayList<Integer> p2 = new ArrayList<>();
+        c.nameofcuisine = "BIRYANI";
+        s = "The Biryani Life";
+        f2.add(s);
+        s = "Behrouz Biryani";
+        f2.add(s);
+        s = "Champaran";
+        f2.add(s);
+        s = "Biryani House";
+        f2.add(s);
+        p2.add(350);
+        p2.add(500);
+        p2.add(250);
+        p2.add(600);
+        c.hotelswithcuisine = f2;
+        c.priceofcuisine = p2;
+        Cuisinesavailable d = new Cuisinesavailable();
+        ArrayList<String> f3 = new ArrayList<>();
+        ArrayList<Integer> p3 = new ArrayList<>();
+        d.nameofcuisine = "CHICKEN WRAPS";
+        s = "Faasos";
+        f3.add(s);
+        s = "Rolls on Wheels";
+        f3.add(s);
+        s ="Kaati Rolls";
+        f3.add(s);
+        s = "Roll n Rock";
+        f3.add(s);
+        p3.add(350);
+        p3.add(200);
+        p3.add(250);
+        p3.add(150);
+        d.hotelswithcuisine = f3;
+        d.priceofcuisine = p3;
+        cuisinelist.add(a);
+        cuisinelist.add(b);
+        cuisinelist.add(c);
+        cuisinelist.add(d);
     }
 }
